@@ -33,6 +33,12 @@ test_pipeline = [
         ])
 ]
 
+"""
+MMseg也支持非常多的数据集包装器（wrapper）来混合数据集或在训练时修改数据集的分布。
+使用 RepeatDataset 包装器来重复数据集。
+重复数据集的长度将比原始数据集大“times倍”。当数据加载时间较长但数据集较小时，这非常有用。
+使用RepeatDataset可以缩短epoch之间的数据加载时间。
+"""
 data = dict(
     samples_per_gpu=4,
     workers_per_gpu=4,
