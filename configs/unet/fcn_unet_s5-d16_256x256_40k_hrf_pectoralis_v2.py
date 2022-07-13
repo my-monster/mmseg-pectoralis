@@ -2,6 +2,7 @@ _base_ = [
     '../_base_/models/fcn_unet_s5-d16.py', '../_base_/datasets/my_pectoralis.py',
     '../_base_/default_runtime.py', '../_base_/schedules/schedule_40k_cumulative.py'
 ]
+data_root = 'data/pectoralis_dataset_cropbg_unified'
 
 norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
