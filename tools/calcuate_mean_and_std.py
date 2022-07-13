@@ -38,7 +38,7 @@ def get_mean_and_std(imgs_path,img_h,img_w):
 
 
 if __name__ == '__main__':
-    imgs_path = r'D:\SourcetreeSpace\mmseg-pectoralis\data\pectoralis_dataset\train\images'  # 图片目录
-    img_h = 256
-    img_w = 256  # 根据自己数据集适当调整，别太大了，最开始头铁4000、6000速度特别慢
+    imgs_path = r'D:\SourcetreeSpace\mmseg-pectoralis\data\pectoralis_dataset_cropbg_unified\train\images'  # 图片目录
+    img_h = 512
+    img_w = 320  # 根据自己数据集适当调整，别太大了，最开始头铁4000、6000速度特别慢
     get_mean_and_std(imgs_path, img_h, img_w)
