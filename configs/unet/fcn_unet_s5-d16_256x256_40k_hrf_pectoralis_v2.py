@@ -3,6 +3,8 @@ _base_ = [
     '../_base_/default_runtime.py', '../_base_/schedules/schedule_40k_cumulative.py'
 ]
 
+data_root = 'data/pectoralis_dataset_cropbg_unified'
+
 norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     backbone=dict(norm_cfg=norm_cfg),
@@ -34,7 +36,7 @@ train_pipeline = [
     # dict(type='CLAHE', clip_limit=3),
     dict(type='AdjustGamma'),
     # dict(type='RandomRotate', prob=0.5, degree=(90,90)),
-    # dict(type='RandomFlip', prob=0.5),
+    dict(type='RandomFlip', prob=0.0),
     dict(type='PhotoMetricDistortion'),
     dict(type='Normalize', **img_norm_cfg),
     # dict(type='Pad', size=crop_size, pad_val=0, seg_pad_val=255),
@@ -58,14 +60,17 @@ test_pipeline = [
 ]
 data = dict(
     train=dict(
+        data_root=data_root,
         img_dir='train/images',
         ann_dir='train/masks',
         pipeline=train_pipeline),
     val=dict(
+        data_root=data_root,
         img_dir='val/images',
         ann_dir='val/masks',
         pipeline=test_pipeline),
     test=dict(
+        data_root=data_root,
         img_dir='val/images',
         ann_dir='val/masks',
         pipeline=test_pipeline))
