@@ -4,8 +4,6 @@ _base_ = [
 ]
 data_root = 'data/pectoralis_dataset_cropbg_unified'
 
-data_root = 'data/pectoralis_dataset_cropbg_unified'
-
 norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     backbone=dict(norm_cfg=norm_cfg),
