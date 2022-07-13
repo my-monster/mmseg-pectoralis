@@ -1,6 +1,6 @@
 _base_ = [
     '../_base_/models/fcn_unet_s5-d16.py', '../_base_/datasets/my_pectoralis.py',
-    '../_base_/default_runtime.py', '../_base_/schedules/schedule_40k_cumulative.py'
+    '../_base_/default_runtime.py', '../_base_/schedules/schedule_80k.py'
 ]
 data_root = 'data/pectoralis_dataset_cropbg_unified'
 
@@ -11,7 +11,7 @@ model = dict(
     auxiliary_head=dict(norm_cfg=norm_cfg))
 
 img_norm_cfg = dict(
-    mean=[21.601, 21.601, 21.601], std=[43.724, 43.724, 43.724], to_rgb=True)
+    mean=[28.032, 28.032, 28.032], std=[47.868, 47.868, 47.868], to_rgb=True)
 
 
 img_scale = (512, 320)
@@ -80,4 +80,4 @@ model = dict(
     decode_head=dict(num_classes=2),
     auxiliary_head=dict(num_classes=2),
     test_cfg=dict(crop_size=(256, 256), stride=(170, 170)))
-evaluation = dict(metric='mDice')
+evaluation = dict(metric='mIoU')
