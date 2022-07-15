@@ -80,4 +80,6 @@ model = dict(
     decode_head=dict(num_classes=2),
     auxiliary_head=dict(num_classes=2),
     test_cfg=dict(crop_size=(256, 256), stride=(170, 170)))
+
+# evaluation = dict(metric='mDice')
 evaluation = dict(metric='mIoU')
