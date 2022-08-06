@@ -33,7 +33,7 @@ train_pipeline = [
 
     # dict(type='RandomCrop', crop_size=crop_size, cat_max_ratio=0.75),
     # dict(type='CLAHE', clip_limit=3),
-    dict(type='AdjustGamma'),
+    # dict(type='AdjustGamma'),
     # dict(type='RandomRotate', prob=0.5, degree=(90,90)),
     dict(type='RandomFlip', prob=0.0),
     dict(type='PhotoMetricDistortion'),
@@ -79,7 +79,8 @@ model = dict(
     # pretrained='',
     decode_head=dict(num_classes=2),
     auxiliary_head=dict(num_classes=2),
-    test_cfg=dict(crop_size=(256, 256), stride=(170, 170)))
+    # test_cfg=dict(crop_size=(256, 256), stride=(170, 170)))
+    test_cfg=dict(mode='whole'))
 
 # evaluation = dict(metric='mDice')
 evaluation = dict(metric='mIoU')

@@ -58,5 +58,6 @@ model = dict(
     # pretrained='',
     decode_head=dict(num_classes=2),
     auxiliary_head=dict(num_classes=2),
-    test_cfg=dict(crop_size=(256, 256), stride=(170, 170)))
+    # test_cfg=dict(crop_size=(256, 256), stride=(170, 170)))
+    test_cfg=dict(mode='whole'))
 evaluation = dict(metric='mDice')
